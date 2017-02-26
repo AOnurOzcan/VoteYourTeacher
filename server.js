@@ -1,7 +1,7 @@
 var express = require('express');
 var fs = require('fs');
 var mongoose = require('mongoose'); 				// mongoose for mongodb
-var database = require('server/db-conf'); 			// load the database config
+var database = require('./server/db-conf'); 			// load the database config
 var bodyParser = require('body-parser');
 var compression = require('compression');
 var restful = require('node-restful');
@@ -16,7 +16,7 @@ app.use(compression());
 mongoose.Promise = global.Promise;
 mongoose.connect(database.localUrl);
 
-require('./teacher-routes')(restful, app);
+require('./server/teacher-routes')(restful, app);
 
 try {
     fs.accessSync('client/build');
