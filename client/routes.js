@@ -5,7 +5,7 @@ angular.module('VoteApp', ['ui.router','ngNotify','angularFileUpload'])
         $stateProvider
 
             .state('home', {
-                url: '',
+                url: '/',
                 templateUrl: 'templates/home.html'
             })
 
