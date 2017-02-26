@@ -20,7 +20,7 @@
     "font-awesome": "latest",
     "angular-animate": "latest",
     "angular-bootstrap": "latest",
-    "ng-notify": "~0.6.3",
-    "angular-file-upload": "~2.2.0"
+    "ng-notify": "latest",
+    "angular-file-upload": "latest"
   }
 }
