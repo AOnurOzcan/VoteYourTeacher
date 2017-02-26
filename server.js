@@ -1,7 +1,7 @@
 var express = require('express');
 var fs = require('fs');
 var mongoose = require('mongoose'); 				// mongoose for mongodb
-var database = require('./db-conf'); 			// load the database config
+var database = require('db-conf'); 			// load the database config
 var bodyParser = require('body-parser');
 var compression = require('compression');
 var restful = require('node-restful');
@@ -19,10 +19,10 @@ mongoose.connect(database.localUrl);
 require('./teacher-routes')(restful, app);
 
 try {
-    fs.accessSync('./client/build');
-    app.use(express.static('./client/build'));
+    fs.accessSync('client/build');
+    app.use(express.static('client/build'));
 } catch (e) {
-    app.use(express.static('./client'));
+    app.use(express.static('client'));
 }
 
 app.listen(3000, function () {
