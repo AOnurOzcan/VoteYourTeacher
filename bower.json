@@ -1,0 +1,26 @@
+{
+  "name": "Onur",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    ".*",
+    ".md"
+  ],
+  "dependencies": {
+    "angular": "latest",
+    "angular-ui-router": "latest",
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "angular-animate": "latest",
+    "angular-bootstrap": "latest",
+    "ng-notify": "~0.6.3",
+    "angular-file-upload": "~2.2.0"
+  }
+}

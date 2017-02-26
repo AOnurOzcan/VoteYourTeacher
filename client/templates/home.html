@@ -1,0 +1,28 @@
+<div class="row" style="margin-top: 20px" ng-controller="HomeController">
+    <div class="col-lg-6 col-lg-offset-3" ng-repeat="teacher in teachers | orderBy: sortTeachers : true ">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-lg-5 text-center">
+                    <img ng-src="/assets/images/{{teacher.image}}" class="img-circle" alt="{{teacher.name}}">
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="row">
+                        <h3>{{teacher.name}}</h3>
+                    </div>
+                    <div class="row col-lg-10 col-lg-offset-1">
+                        <i  ng-click="vote(0, teacher)" class="fa fa-thumbs-o-down fa-4x pull-left" style="color:red; cursor: pointer"></i>
+                        <i  ng-click="vote(1, teacher)" class="fa fa-thumbs-o-up fa-4x pull-right" style="color:green; cursor:pointer;"></i>
+                    </div>
+                    <div class="row col-lg-10 col-lg-offset-1">
+                        <div class="pull-left">
+                            <span style="font-size: 30px">{{teacher.negativeVoteCounter}}</span>
+                        </div>
+                        <div class="pull-right">
+                            <span style="font-size: 30px">{{teacher.positiveVoteCounter}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

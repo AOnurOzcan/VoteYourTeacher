@@ -1,0 +1,39 @@
+<div class="row" ng-controller="TeacherController">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <span class="pull-left"><h2>Hocaları Yönetin</h2></span>
+    <span class="pull-right" style="margin-top:15px">
+            <a ui-sref="add-teacher" class="btn btn-success">
+            <i class="fa fa-pencil"></i> Yeni Ekle</a>
+        </span>
+  </div>
+  <div class="col-lg-12">
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th class="col-lg-2">İsim</th>
+        <th class="col-lg-2">Resim</th>
+        <th class="col-lg-2">Olumlu Oy Sayısı</th>
+        <th class="col-lg-2">Olumsuz Oy Sayısı</th>
+        <th class="col-lg-2">Düzenle</th>
+        <th class="col-lg-2">Sil</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="teacher in teachers">
+        <td>{{teacher.name}}</td>
+        <td><img class="img-responsive" style="height: 50px; width: 50px" ng-src="/assets/images/{{teacher.image}}"></td>
+        <td>{{teacher.positiveVoteCounter}}</td>
+        <td>{{teacher.negativeVoteCounter}}</td>
+        <td>
+          <a ui-sref="edit-teacher({'id':teacher._id})">
+            <button class="btn btn-xs btn-warning">Düzenle</button>
+          </a>
+        </td>
+        <td>
+          <button ng-click="removeTeacher(teacher._id)" class="btn btn-xs btn-danger">Sil</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
