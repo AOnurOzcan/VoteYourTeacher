@@ -16,14 +16,14 @@ app.use(compression());
 mongoose.Promise = global.Promise;
 mongoose.connect(database.localUrl);
 
+require('./teacher-routes')(restful, app);
+
 try {
     fs.accessSync('./client/build');
     app.use(express.static('./client/build'));
 } catch (e) {
     app.use(express.static('./client'));
 }
-
-require('./teacher-routes')(restful, app);
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
