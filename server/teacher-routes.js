@@ -5,6 +5,7 @@
 var Teacher = require("./Teacher");
 var uploader = require("./Upload");
 var requestIp = require('request-ip');
+var fs = require('fs');
 
 module.exports = function (restful, app) {
 
@@ -15,9 +16,16 @@ module.exports = function (restful, app) {
     TeacherResource
         .route('imageUpload.post', function (req, res) {
             var sizeLimit = 3; //3MB
-            uploader("client/assets/images/", sizeLimit, req, res, function (response) {
-                res.json(response);
-            })
+            try {
+                fs.accessSync('client/build');
+                uploader("client/build/assets/images/", sizeLimit, req, res, function (response) {
+                    res.json(response);
+                })
+            } catch (e) {
+                uploader("client/assets/images/", sizeLimit, req, res, function (response) {
+                    res.json(response);
+                })
+            }
         })
         .before('vote.post', function (req, res, next) {
             req.clientIp = requestIp.getClientIp(req);
