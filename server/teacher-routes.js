@@ -17,12 +17,12 @@ module.exports = function (restful, app) {
         .route('imageUpload.post', function (req, res) {
             var sizeLimit = 3; //3MB
             try {
-                fs.accessSync('client/build');
-                uploader("client/build/assets/images/", sizeLimit, req, res, function (response) {
+                fs.accessSync(__base + 'client/build');
+                uploader(__base + "client/build/assets/images/", sizeLimit, req, res, function (response) {
                     res.json(response);
                 })
             } catch (e) {
-                uploader("client/assets/images/", sizeLimit, req, res, function (response) {
+                uploader(__base + "client/assets/images/", sizeLimit, req, res, function (response) {
                     res.json(response);
                 })
             }
