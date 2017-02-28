@@ -17,12 +17,14 @@ mongoose.Promise = global.Promise;
 mongoose.connect(database.localUrl);
 
 require('./server/teacher-routes')(restful, app);
+var path = require("path");
+
 
 try {
     fs.accessSync('client/build');
-    app.use(express.static('client/build'));
+    app.use(express.static(path.resolve(__dirname + "/client/build")));
 } catch (e) {
-    app.use(express.static('client'));
+    app.use(express.static(path.resolve(__dirname + "/client")));
 }
 
 app.listen(3000, function () {
